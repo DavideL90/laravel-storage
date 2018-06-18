@@ -29,8 +29,13 @@ class GeneralController extends Controller
       return redirect()->route('home');
    }
 
-   public function delete($elementId){
-      $row_to_delete = Good::where('id', $elementId)->delete();
+   public function delete($id){
+      $row_to_delete = Good::where('id', $id)->delete();
       return redirect()->route('home');
+   }
+
+   public function find($id){
+      $row_to_find = Good::where('id', $id)->get();
+      return redirect()->route('home', ['row' => $row_to_find]);
    }
 }

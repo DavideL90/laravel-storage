@@ -19,6 +19,7 @@
       </div>
       <div class="row_bar save_row">
          <form id="save_form" action="{{route('save')}}" method="post">
+
             @csrf
             <span class="row_itms id">&nbsp</span>
             <span class="row_itms cod_art"><input id="cod_art" type="text" name="cod_art" value=""></span>
@@ -51,8 +52,8 @@
             <span class="row_itms sell_price">{{$table_row['prezzo_vendita']}} €</span>
             <span class="row_itms buy_price">{{$table_row['prezzo_acquisto']}} €</span>
             <span class="row_itms actions">
-               <span class="actions_itms"><a class="#"><i class="fas fa-pencil-alt"></i></a></span>
-               <span class="actions_itms"><a href="{{route('delete'), $table_row['id']}}"><i class="fas fa-times"></i></a></span>
+               <span class="actions_itms"><a class="modify_btn" href="{{route('find', $table_row['id'])}}"><i class="fas fa-pencil-alt"></i></a></span>
+               <span class="actions_itms"><a href="{{route('delete', $table_row['id'])}}"><i class="fas fa-times"></i></a></span>
             </span>
          </div>
       @endforeach
@@ -62,6 +63,7 @@
 @section('form_cnt')
    <div id="modify_form_cnt">
       <form action="{{route('modify')}}" method="post">
+
          @csrf
          <ul>
             <li>

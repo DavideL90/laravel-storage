@@ -1,0 +1,131 @@
+#goods_table{
+   display: inline-block;
+   //barra con i titoli delle colonne
+   #header_bar{
+      display: flex;
+
+      .col_header{
+         text-align: center !important;
+         padding: 10px;
+         background-color: #65737e;
+         font-size: 18px;
+         font-weight: bold;
+      }
+   }
+   //barra con il record
+   .row_bar{
+      display: flex;
+      background-color: #d2d4dc;
+      //elementi all'interno della barra
+      .row_itms{
+         padding: 10px 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+         font-size: 16px;
+      }
+      //prima riga per il salvataggio di un nuovo record
+      &.save_row{
+         background-color: lightgrey;
+
+         input{
+            width: 90%;
+
+            &[type="submit"]{
+               width: 100%;
+            }
+         }
+
+         #save_form{
+            display: flex;
+            width: 100%;
+         }
+      }
+   }
+
+   //righe con backgr diverso per alternare i colori
+   .row_bar.colored{
+      background-color: #e5e6eb;
+   }
+   //dimensionamento colonne
+   .row_itms.id, .row_itms.cod_art, .row_itms.quantity {
+      width: 130px;
+   }
+   .row_itms.name_art, .row_itms.brand{
+      width: 150px;
+   }
+   .row_itms.desc{
+      width: 400px;
+      text-align: justify;
+   }
+   .row_itms.sell_price, .row_itms.buy_price{
+      width: 200px;
+   }
+   .row_itms.actions{
+      width: 125px;
+      display: flex;
+      justify-content: center;
+
+      .actions_itms{
+         width: calc(100% / 2);
+
+         a{
+            color: black;
+            text-decoration: none;
+
+            &:hover{
+               color: blue;
+            }
+         }
+      }
+   }
+}
+
+
+#modify_form_cnt{
+   border: 1px solid black;
+   display: none;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+   background-color: lightgrey;
+   width: 700px;
+
+   ul{
+      list-style: none;
+      padding: 0;
+      li{
+         display: inline-block;
+         padding: 0 10px;
+
+         label{
+            display: block;
+            font-size: 18px;
+            padding: 10px 0;
+         }
+         input{
+            margin-bottom: 10px;
+         }
+      }
+   }
+
+   #modify_btn_cnt{
+      margin-bottom: 0;
+
+      input{
+         padding: 10px 15px;
+         cursor: pointer;
+      }
+   }
+
+   #esc_btn{
+      position: absolute;
+      top: 0;
+      right: 10px;
+      font-size: 18px;
+      cursor: pointer;
+   }
+}
